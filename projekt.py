@@ -27,11 +27,11 @@ class test(unittest.TestCase):
         driver = self.driver
         buttonBar = driver.find_element_by_css_selector(".rozmiary_div")
         availableSizes = buttonBar.find_elements_by_css_selector(".atts_6")
-        sizeButton = availableSizes[0].find_element_by_css_selector('a')
-        sizeButton.click()
+        sizeLink = availableSizes[0].find_element_by_css_selector('a')
+        sizeLink.click()
 
         selectedSize = driver.find_element_by_id("selectedSize")
-        assert selectedSize.text == "34(XS)"
+        assert selectedSize.text == sizeLink.text
 
         sleep(5)
 
