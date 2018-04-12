@@ -78,6 +78,7 @@ class test(unittest.TestCase):
         assert alert.text == u'Potwierdzenie hasła musi być takie same jak hasło !'
         alert.accept()
         print("alert accepted")
+        
 
     def tearDown(self):
         self.driver.quit()
