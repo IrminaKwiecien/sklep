@@ -20,13 +20,15 @@ class test(unittest.TestCase):
         availableSizes = buttonBar.find_elements_by_css_selector(".atts_6")
         sizeLink = availableSizes[0].find_element_by_css_selector('a')
         sizeLink.click()
-
         sleep(5)
-
         selectedSize = driver.find_element_by_id("selectedSize")
         assert selectedSize.text == sizeLink.text
-
-        
+        cookies_info = driver.find_element_by_id("close-cookie-info")
+        cookies_info.click()
+        sleep(1)
+        addToBasket = driver.find_element_by_id("add2BasketBtn")
+        addToBasket.click()
+        sleep(1)
 
 
 
