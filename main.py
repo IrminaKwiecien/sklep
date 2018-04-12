@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
+
 import unittest
 from time import sleep
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 
 valid_name = "Anna"
 valid_surname = "Nowak"
@@ -69,6 +73,11 @@ class test(unittest.TestCase):
         registration_user = driver.find_element_by_id("newUser_submit_button")
         registration_user.click()
         sleep(3)
+        WebDriverWait(driver, 3).until(EC.alert_is_present(), '')
+        alert = driver.switch_to.alert
+        assert alert.text == u'Potwierdzenie hasła musi być takie same jak hasło !'
+        alert.accept()
+        print("alert accepted")
 
     def tearDown(self):
         self.driver.quit()
