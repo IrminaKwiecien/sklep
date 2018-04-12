@@ -26,6 +26,8 @@ class test(unittest.TestCase):
         selectedSize = driver.find_element_by_id("selectedSize")
         assert selectedSize.text == sizeLink.text
 
+        
+
 
 
 
