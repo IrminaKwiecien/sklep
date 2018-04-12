@@ -31,7 +31,7 @@ class test(unittest.TestCase):
         sizeButton.click()
 
         selectedSize = driver.find_element_by_id("selectedSize")
-        assert selectedSize.text == "34(XS)"
+        assert selectedSize.text == "36(XS)"
 
         sleep(5)
 
